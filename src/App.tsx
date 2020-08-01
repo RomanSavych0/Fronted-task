@@ -1,9 +1,14 @@
 import React from "react";
-import "./App.css";
-import Messages from "./Compponents/Messages/Messages";
+import Profile from "./Compponents/Profile/Profile";
+import Navbar from "./Compponents/Navbar/Navbar";
 
 function App() {
-  return <Messages />;
+  return (
+    <div>
+      <Navbar />
+      <Profile />
+    </div>
+  );
 }
 
 export default App;
