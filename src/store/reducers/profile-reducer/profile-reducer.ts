@@ -28,7 +28,6 @@ const profileReducer =(state = initialState ,  action : profileActionsType):prof
     case 'SET-USER-DESCRIPTION':
       return{...state , profile: {...state.profile , description: action.payload}}
       case 'CLEAR-PROFILE-DATA':
-        console.log("clear")
         return{...initialState}
     default: 
     return state

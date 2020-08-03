@@ -1,5 +1,4 @@
 import firebase from 'firebase';
-import { IProfile } from '../store/reducers/profile-reducer/types';
 import { IBlog } from '../store/reducers/blog-reducer/types';
 const firebaseConfig={
   apiKey:  process.env.REACT_APP_API_KEY,

@@ -30,7 +30,6 @@ export const setBlogs=():BlogThunkType=>{
     dispatch(blogActions.toggleIsFetching(true))
     getBlogsAPI().then(function(snapshot){
       const blogs = snapshot.val();
-      console.log(blogs);
       if(blogs === undefined || blogs === null){
         dispatch(blogActions.setBlogs([]))
       }

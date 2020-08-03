@@ -38,7 +38,7 @@ export const AddBlog: React.FC<IProps> = (props) => {
           <h2>Add title:</h2>
           <div>
             <TextField
-              inputProps={{ maxLength: 12 }}
+              inputProps={{ maxLength: 45 }}
               error={isError}
               value={title}
               onChange={onTitleChange}

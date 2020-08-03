@@ -60,11 +60,8 @@ const Profile: React.FC<IProps> = (props) => {
       let reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = () => {
-        console.log(reader.result);
         setPhoto(reader.result as string);
       };
-
-      console.log(reader.result);
     }
   };
   const onNameChange = (e: any) => {

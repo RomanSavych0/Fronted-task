@@ -8,8 +8,6 @@ import * as dotenv from "dotenv";
 import { BrowserRouter } from "react-router-dom";
 dotenv.config();
 
-console.log(process.env);
-
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
