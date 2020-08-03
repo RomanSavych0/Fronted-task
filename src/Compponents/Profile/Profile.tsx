@@ -86,7 +86,7 @@ const Profile: React.FC<IProps> = (props) => {
           <Grid container className={classes.contentWrapper}>
             <Grid item xs={12}>
               <img
-                src={photo ? "" : userPhoto}
+                src={photo === "" ? userPhoto : photo}
                 alt=""
                 className={classes.image}
               />
