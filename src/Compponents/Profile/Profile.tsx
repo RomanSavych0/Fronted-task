@@ -25,9 +25,7 @@ interface IProps {
   setUserDescription: (description: string) => void;
 }
 const Profile: React.FC<IProps> = (props) => {
-  const [photo, setPhoto] = React.useState<string>(
-    props.profile.photo ? "" : userPhoto
-  );
+  const [photo, setPhoto] = React.useState<string>(props.profile.photo);
   const [isEditMode, setEditMode] = React.useState<boolean>(false);
   const [userName, setUserName] = React.useState<string>(props.profile.name);
   const [aboutMeToggle, setAboutMeToggle] = React.useState<boolean>(false);
@@ -87,7 +85,11 @@ const Profile: React.FC<IProps> = (props) => {
         {!isEditMode ? (
           <Grid container className={classes.contentWrapper}>
             <Grid item xs={12}>
-              <img src={photo} alt="" className={classes.image} />
+              <img
+                src={photo ? "" : userPhoto}
+                alt=""
+                className={classes.image}
+              />
               <div className={classes.description}>
                 <h2>
                   {userName} {userSurname}
