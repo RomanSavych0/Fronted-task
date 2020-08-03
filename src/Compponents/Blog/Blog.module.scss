@@ -1,0 +1,45 @@
+.blogWrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  max-width: 1335px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+.blogsTools {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.blogsWrapper {
+  img {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 21px;
+    object-fit: cover;
+  }
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.blogItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 21px;
+    object-fit: cover;
+  }
+}
+.blogsList {
+  margin-top: 37px;
+
+  display: flex;
+  flex-direction: column;
+}

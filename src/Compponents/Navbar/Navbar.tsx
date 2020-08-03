@@ -4,8 +4,11 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { AppStateType } from "../../store/redux-store";
+import { signOut } from "../../store/reducers/auth-reducer/auth-reducer";
+import { clearProfileData } from "../../store/reducers/profile-reducer/profile-reducer";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -16,12 +19,22 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     title: {
       flexGrow: 1,
-      display: "flex",
     },
   })
 );
 
-const Navbar = () => {
+interface IProps {
+  email: string | null;
+  isAuthorized: boolean;
+  signOut: () => void;
+  clearProfileData: () => void;
+}
+
+const Navbar: React.FC<IProps> = (props) => {
+  let signOutHandler = () => {
+    props.clearProfileData();
+    props.signOut();
+  };
   const classes = useStyles();
   return (
     <div>
@@ -45,11 +58,36 @@ const Navbar = () => {
             </NavLink>
           </Typography>
 
-          <Button color="inherit">Login</Button>
+          <div>
+            <NavLink
+              to="/login"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              {props.isAuthorized ? (
+                <div style={{ display: "flex" }}>
+                  <Button color="inherit">
+                    <div>{props.email}</div>
+                  </Button>
+                  <Button color="inherit" onClick={signOutHandler}>
+                    Sign Out
+                  </Button>
+                </div>
+              ) : (
+                <div>Login</div>
+              )}
+            </NavLink>
+          </div>
         </Toolbar>
       </AppBar>
     </div>
   );
 };
 
-export default Navbar;
+const mapStateToProps = (state: AppStateType) => {
+  return {
+    email: state.auth.login,
+    isAuthorized: state.auth.isAuth,
+  };
+};
+
+export default connect(mapStateToProps, { signOut, clearProfileData })(Navbar);

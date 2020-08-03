@@ -1,0 +1,20 @@
+.modalWindowContentWrapper {
+  background-color: white;
+  width: 80%;
+  height: 80%;
+  overflow: scroll;
+
+  // display: flex;
+  // justify-content: center;
+  // align-content: center;
+  // align-items: center;
+  @media screen and(max-width:507px) {
+    height: 100%;
+  }
+}
+.modalWindowWrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}

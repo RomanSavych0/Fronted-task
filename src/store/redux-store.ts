@@ -1,8 +1,14 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import thunkMiddleware from 'redux-thunk'
+import authReducer from './reducers/auth-reducer/auth-reducer'
+import profileReducer from './reducers/profile-reducer/profile-reducer'
+import blogReducer from './reducers/blog-reducer/blog-reducer'
 const rootReducer = combineReducers({
+  auth:authReducer,
+  profile: profileReducer,
   form: formReducer,
+  blogs:blogReducer
 })
 type RootReducerType = typeof rootReducer
 export type AppStateType = ReturnType<RootReducerType>
